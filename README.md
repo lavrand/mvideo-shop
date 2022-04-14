@@ -12,6 +12,8 @@ Use the `Postman Api collection` in the Postman directory. To make request to va
 
 ```
 
+Java SDK 1.8 (Not 17!)
+
 <hr>
 
 >Bug fix list

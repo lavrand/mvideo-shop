@@ -99,6 +99,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-apache-client4</artifactId>
+			<version>1.19.4</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.devd.spring</groupId>
 			<artifactId>bookstore-commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
