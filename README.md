@@ -18,12 +18,12 @@ Java SDK 1.8 (Not 17!)
 
 >Bug fix list
 
-1. Fix cart controller.
-2. Fix user account service.
-3. Fix postresql connection.
+1. Сreation of cart doesn't work. Fix it in cart controller.
+2. Creation of user doesn't work. Fix it in user account service.
+3. Fix postresql connection, settings and scripts. DB migration done from MySQL to PostgreSQL should be completed.
 
 >Feature list
 
-1. Develop good search feature.
-2. Develop good compare feature.
-3. Develop content management capabilities feature.
+1. Develop search feature for goods. Goods should be searched by name.
+2. Develop compare feature for goods. Goods should by parameters and price.
+3. Develop content management capabilities feature. Develop backend part of admin panel for adding goods.
