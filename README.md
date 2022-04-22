@@ -23,6 +23,8 @@ Open docker-compose file in IntelliJ IDEA and press two green arrows in the begi
 
 Wait while docker containers are up 
 
+![img_4.png](img_4.png)
+
 Use the `Postman Api collection` in the Postman directory. To make request to various services.
 
 >Tasks list:
