@@ -2,19 +2,32 @@
 
 >Backend Services Start Instruction
 
-Start Docker Engine in your machine.
 
-Run `mvn clean install` at root of project to build all the microservices jars.
+Open project in IntelliJ IDEA, open menu File-> Project structure -> Project settings -> Project -> SDK  and choose Java SDK 1.8
 
-Run `docker-compose up --build` to start all the containers.
+![img_3.png](img_3.png)
+
+In IntelliJ IDEA, open maven tab on the right side and press Lifecycle -> package.
+
+![img.png](img.png)
+
+Wait while the build finish.
+
+![img_1.png](img_1.png)
+
+Install docker desktop application on computer.
+
+Open docker-compose file in IntelliJ IDEA and press two green arrows in the beginning of the file.
+
+![img_2.png](img_2.png)
+
+Wait while docker containers are up 
 
 Use the `Postman Api collection` in the Postman directory. To make request to various services.
 
+>Tasks list:
+
 ```
-
-Java SDK 1.8 (Not 17!)
-
-<hr>
 
 >Bug fix list
 
