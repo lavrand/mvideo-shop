@@ -1,6 +1,23 @@
-version: "3.4"
+version: "3.8"
 
 services:
+
+  # Database
+  bookstore-postgres:
+    image: postgres:14.2-alpine
+    container_name: bookstore-postgres
+    restart: always
+    ports:
+      - '5432:5432'
+    expose:
+      - '5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    volumes:
+      - bookstore-postgres-volume:/var/lib/postgresql/data
+    networks:
+      - bookstore-app-network
 
   # Core services
   bookstore-consul-discovery:
@@ -213,25 +230,10 @@ services:
     networks:
       - bookstore-app-network
 
-  # Database
-  bookstore-postgres:
-    image: postgres:14.2-alpine
-    container_name: bookstore-postgres
-    ports:
-      - "5432:5432"
-    expose:
-      - "5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-    volumes:
-      - bookstore-postgres-volume:/var/lib/postgresql/data
-    networks:
-      - bookstore-app-network
-
 
 volumes:
   bookstore-postgres-volume:
+    driver: local
   bookstore-graphana-volume:
   booksture-telegraph-volume:
   booksture-influxdb-volume:
