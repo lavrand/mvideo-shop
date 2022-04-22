@@ -49,6 +49,9 @@ Use the `Postman Api collection` in the Postman directory. To make request to va
 
 >Feature list
 
-1. Develop search feature for goods. Goods should be searched by name.
-2. Develop compare feature for goods. Goods should by parameters and price.
-3. Develop content management capabilities feature. Develop backend part of admin panel for adding goods.
+1. Develop search feature for goods. 
+    Add ability to search goods to backend. Goods should be searched by name.
+2. Develop compare feature for goods. 
+    Add ability to compare goods. Goods should be abled to be compared by parameters and price.
+3. Develop content management capabilities feature. 
+    Add ability to add goods by admin panel functionality. Develop backend part of admin panel for adding goods.
