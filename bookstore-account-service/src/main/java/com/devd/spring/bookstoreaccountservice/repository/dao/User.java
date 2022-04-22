@@ -27,13 +27,13 @@ import org.hibernate.annotations.GenericGenerator;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "USER")
+@Table(name = "user")
 @Builder
 public class User extends DateAudit {
 
   @ManyToMany(fetch = FetchType.EAGER,
       cascade = CascadeType.DETACH)
-  @JoinTable(name = "USER_ROLES",
+  @JoinTable(name = "USR_ROLES",
       joinColumns = {@JoinColumn(name = "user_id")},
       inverseJoinColumns = {@JoinColumn(name = "role_id")})
   Set<Role> roles;
