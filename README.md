@@ -31,9 +31,14 @@ Use the `Postman Api collection` in the Postman directory. To make request to va
 
 >Bug fix list
 
-1. Сreation of cart doesn't work. Fix it in cart controller.
-2. Creation of user doesn't work. Fix it in user account service.
-3. Fix postresql connection, settings and scripts. DB migration done from MySQL to PostgreSQL should be completed.
+1. Проблема CORS.
+    Текущая версия системы не поддерживает метод PATCH, добавьте его, чтобы CORS работал и для него. 
+    Подсказка: Access-Control-Allow-Methods
+    bookstore-commons/src/main/java/com/devd/spring/bookstorecommons/security/SimpleCorsFilter.java
+    30 строка - прописать туда методы кроме PATCH
+2. Сreation of cart doesn't work. Fix it in cart controller.
+3. Creation of user doesn't work. Fix it in user account service.
+4. Fix postresql connection, settings and scripts. DB migration done from MySQL to PostgreSQL should be completed.
 
 >Feature list
 
