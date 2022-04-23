@@ -1,57 +1,78 @@
-# Backend Java Microservice Ecommerce
+# Интернет-магазин, сервер на Backend Java Microservices
 
->Backend Services Start Instruction
+>Инструкция по запуску сервера
 
-
-Open project in IntelliJ IDEA, open menu File-> Project structure -> Project settings -> Project -> SDK  and choose Java SDK 1.8
+Откройте проект в IntelliJ IDEA, откройте меню File-> Project structure -> Project settings -> Project -> SDK и выберите Java SDK 1.8
 
 ![img_3.png](img_3.png)
 
-In IntelliJ IDEA, open maven tab on the right side and press Lifecycle -> package.
+В IntelliJ IDEA, откройте закладку maven в верхней правой части среды разработки и нажмите Lifecycle -> package.
 
 ![img.png](img.png)
 
-Wait while the build finish.
+Дождитесь окончания сборки проекта.
 
 ![img_1.png](img_1.png)
 
-Install docker desktop application on computer.
+Установите программу docker desktop application на Ваш компьютер.
 
-Open docker-compose file in IntelliJ IDEA and press two green arrows in the beginning of the file.
+Откройте файл docker-compose в IntelliJ IDEA и нажмите двойную зеленую стрелку в начале файла.
 
 ![img_2.png](img_2.png)
 
-Wait while docker containers are up 
+Дождитесь окончания создания docker контейнеров. 
 
 ![img_4.png](img_4.png)
 
-Use the `Postman Api collection` in the Postman directory. To make request to various services.
+Установите программу Postman на Ваш компьютер.
 
->Tasks list:
+Импортируйте файлы `Postman Api collection` из папки Postman в программу Postman.
+
+![img_5.png](img_5.png)
+
+![img_9.png](img_9.png)
+
+Перейдите во вкладку Environments и выберите коллекцию BookstoreApp. 
+
+![img_8.png](img_8.png)
+
+Запрос Get OAuth Token по адресу {{accountServiceAPIGatewayUrl}}/oauth/token должен возвращать ответ:
+
+![img_6.png](img_6.png)
+
+Запрос Get All Products {{catalogServiceAPIGatewayUrl}}/products?sort=updatedAt,DESC&page=0&size=4 должен возвращать ответ:
+
+![img_7.png](img_7.png)
+
+>Список задач для доработки:
 
 ```
 
->Bug fix list
+Список багов в ПО для устранения:
 
-1. Fix CORS problem.
-    The current version of the system does not support the PATCH method, add it so CORS will work for it as well.
-    Hint: Access-Control-Allow-Methods
-    bookstore-commons/src/main/java/com/devd/spring/bookstorecommons/security/SimpleCorsFilter.java
-    Line 30 - write methods there except for PATCH
-2. Сreation of cart doesn't work. Fix it in cart controller.
-    When send POST to /cart API it responses with null body.
-    Hint: class CartController, method createCart
-    Line 26-28 - fix the code to create cart.
-3. Creation of user doesn't work. Fix it in user account service.
-    When send POST to /user API it responses with null body.
-    Hint: class UserController, method createUser
-    Line 41 - fix the code to create user.
+1. Проблема CORS.
+    Текущая версия системы не поддерживает метод PATCH, добавьте его, чтобы CORS работал и для него. 
+    Подсказка: Access-Control-Allow-Methods
+    bookstreo-commons/src/main/java/com/devd/spring/bookstorecommons/security/SimpleCorsFilter.java
+    30 строка - прописать туда методы кроме PATCH
+2. Не работает создание корзины. Исправьте это в контроллере корзины cart controller.
+    При отправке POST в /cart API он отвечает null body.
+    Подсказка: класс CartController, метод createCart
+    Строка 26-28 - исправить код для создания корзины.
+3. Создание пользователя не работает. Исправьте это в службе учетных записей пользователей user account service.
+    При отправке POST в /user API он отвечает null body.
+    Подсказка: класс UserController, метод createUser
+    Строка 41 - исправить код для создания пользователя.
 
->Feature list
+Список новых задач с новой фунециональностю для разработки:
 
-1. Develop search feature for goods. 
-    Add ability to search goods to backend. Goods should be searched by name.
-2. Develop compare feature for goods. 
-    Add ability to compare goods. Goods should be abled to be compared by parameters and price.
-3. Develop content management capabilities feature. 
-    Add ability to add goods by admin panel functionality. Develop backend part of admin panel for adding goods.
+1. Разработать функцию поиска товаров.
+    Добавить возможность поиска товаров. Товары следует искать по названию.
+    Подсказка: начать с класса ProductController, написать метод похожий на getProduct
+    Строка 51-57: создать похожий контроллер и далее сервис по поиску товаров, но не по productId, а по productName.
+2. Разработать функцию фильтрации товаров по цене.
+    Добавить возможность возвращать только товары, попадающие в ценовой диапазон.
+    Подсказка: сделать фильрацию товаров по полю price
+3. Разработать функцию возвращения товаров по рейтингу.
+    Добавить возможность возвращать только товары, с минимальным указанным рейтингом.
+    Подсказка: сделать фильрацию товаров по полю averageRating.
